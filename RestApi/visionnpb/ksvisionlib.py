@@ -213,6 +213,9 @@
 # July 13, 2022
 #    - No changes for v5.11.0 and v5.11.1
 #
+# July 19, 2022
+#    - Added method changeCteSpeedConfiguration
+#
 # COPYRIGHT 2019-2022 Keysight Technologies.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -2347,6 +2350,15 @@ class VisionWebApi(object):
         Sample usage:
         """
         return self._sendRequest('POST', '/api/cte_operations/change_role', args)
+
+    def changeCteSpeedConfiguration(self, args):
+        """ changeCteSpeedConfiguration :
+        Changes the speed configuration of IFC port..
+        Sample usage:
+        >>> nto.changeCteSpeedConfiguration({'port_uuid_list': ['string'], 'qsfp28_port_mode': 'MODE_QSFP'})
+        '{}'
+        """
+        return self._sendRequest('POST', '/api/cte_operations/cte_change_speed_configuration', args, False)
 
     def clearCteAeChannelStatsHistory(self, args):
         """ clearCteAeChannelStatsHistory :
